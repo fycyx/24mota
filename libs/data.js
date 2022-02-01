@@ -9,7 +9,7 @@ data.prototype.init = function() {
         "version": "Ver 1.4.2", // 当前游戏版本；版本不一致的存档不能通用。
         "floorId": "MT0", // 初始楼层ID
         "hero": { // 勇士初始数据
-            "name": "勇士", // 勇士名；可以改成喜欢的
+            "name": "勇士CZ", // 勇士名；可以改成喜欢的
             'lv': 1, // 初始等级，该项必须为正整数
             "hp": 1000, // 初始生命值
             "atk": 10, // 初始攻击
@@ -47,17 +47,17 @@ data.prototype.init = function() {
                 "icon": "blueShop", // 商店图标，在icons.js中的npc一项定义
                 "textInList": "3F金币商店", // 在快捷商店栏中显示的名称
                 "use": "money", // 商店所要使用的。只能是"money"或"experience"。
-                "need": "25",  // 商店需要的金币/经验数值；可以是一个表达式，以times作为参数计算。
+                "need": "-1",  // 商店需要的金币/经验数值；可以是一个表达式，以times作为参数计算。
                 // 这里用到的times为该商店的已经的访问次数。首次访问该商店时times的值为0。
                 // 上面的例子是50层商店的计算公式。你也可以写任意其他的计算公式，只要以times作为参数即可。
                 // 例如： "need": "25" 就是恒定需要25金币的商店； "need": "20+2*times" 就是第一次访问要20金币，以后每次递增2金币的商店。
                 // 如果是对于每个选项有不同的计算公式，写 "need": "-1" 即可。可参见下面的经验商店。
                 "text": "勇敢的武士啊，给我${need}金币就可以：", // 显示的文字，需手动加换行符。可以使用${need}表示上面的need值。
                 "choices": [ // 商店的选项
-                    {"text": "生命+800", "effect": "status:hp+=800"},
+                    {"text": "生命+800", "need": "25","effect": "status:hp+=800"},
                     // 如果有多个effect以分号分开，参见下面的经验商店
-                    {"text": "攻击+4", "effect": "status:atk+=4"},
-                    {"text": "防御+4", "effect": "status:def+=4"},
+                    {"text": "攻击+4", "need": "25","effect": "status:atk+=4"},
+                    {"text": "防御+4","need": "25", "effect": "status:def+=4"}
                     // effect只能对status和item进行操作，不能修改flag值。
                     // 必须是X+=Y的形式，其中Y可以是一个表达式，以status:xxx或item:xxx为参数
                     // 其他effect样例：
@@ -149,24 +149,6 @@ data.prototype.init = function() {
                     {"text": "等级+3", "need": "270", "effect": "status:lv+=3;status:hp+=3000;status:atk+=20;status:def+=20"},
                     {"text": "攻击+17", "need": "95", "effect": "status:atk+=17"},
                     {"text": "防御+17", "need": "95", "effect": "status:def+=17"},
-                    
-                ]
-            },
-            {
-                "id": "bugShop", // 商店唯一ID
-                "name": "神奇商店",
-                "icon": "man",
-                "textInList": "0F",
-                "use": "money", // 该商店使用的是经验进行计算
-                "need": "-1", // 如果是对于每个选项所需要的数值不同，这里直接写-1，然后下面选项里给定具体数值
-                "text": "辅助你通关：",
-                "choices": [
-                    // 在choices中写need，可以针对每个选项都有不同的需求。
-                    // 这里的need同样可以以times作为参数，比如 "need": "100+20*times"
-                    // 多个effect直接以分号分开即可。如上面的意思是生命+1000，攻击+7，防御+7。
-                    {"text": "等级+1", "need": "1", "effect": "status:lv+=1;status:hp+=3000;"},
-                    {"text": "攻击+10", "need": "1", "effect": "status:atk+=10"},
-                    {"text": "防御+10", "need": "1", "effect": "status:def+=10"},
                     
                 ]
             },
