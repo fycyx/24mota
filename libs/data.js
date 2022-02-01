@@ -38,7 +38,7 @@ data.prototype.init = function() {
         "startText": [ // 游戏开始前剧情。如果无剧情直接留一个空数组即可。
             "本塔为经典胖老鼠24层的HTML5复刻版，尽量保留了原版的原汁原味。",
             "和flash版本相比，区别主要有：\n - 取消了25分钟上16层的限制\n - 开局提供怪物手册\n - 增加了快捷商店\n - 增加真结局：200级通关可达成",
-            "本塔使用HTML5魔塔样板制作，可在全平台上进行游戏。如对H5魔塔感兴趣者，欢迎加群539113091交流。"
+            "本塔使用HTML5魔塔样板制作，可在全平台上进行游戏。"
         ],
         "shops": [ // 定义全局商店（即快捷商店）
             {
@@ -149,6 +149,24 @@ data.prototype.init = function() {
                     {"text": "等级+3", "need": "270", "effect": "status:lv+=3;status:hp+=3000;status:atk+=20;status:def+=20"},
                     {"text": "攻击+17", "need": "95", "effect": "status:atk+=17"},
                     {"text": "防御+17", "need": "95", "effect": "status:def+=17"},
+                    
+                ]
+            },
+            {
+                "id": "bugShop", // 商店唯一ID
+                "name": "神奇商店",
+                "icon": "man",
+                "textInList": "0F",
+                "use": "money", // 该商店使用的是经验进行计算
+                "need": "-1", // 如果是对于每个选项所需要的数值不同，这里直接写-1，然后下面选项里给定具体数值
+                "text": "辅助你通关：",
+                "choices": [
+                    // 在choices中写need，可以针对每个选项都有不同的需求。
+                    // 这里的need同样可以以times作为参数，比如 "need": "100+20*times"
+                    // 多个effect直接以分号分开即可。如上面的意思是生命+1000，攻击+7，防御+7。
+                    {"text": "等级+1", "need": "1", "effect": "status:lv+=1;status:hp+=3000;"},
+                    {"text": "攻击+10", "need": "1", "effect": "status:atk+=10"},
+                    {"text": "防御+10", "need": "1", "effect": "status:def+=10"},
                     
                 ]
             },
