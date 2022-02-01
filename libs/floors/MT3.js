@@ -31,7 +31,8 @@ main.floors.MT3 = {
     ],
     "events": { // 该楼的所有可能事件列表
         "6,1": [
-            {"type": "openShop", "id": "moneyShop1"}
+            {"type": "openShop", "id": "moneyShop1"},
+             {"type": "openShop", "id": "bugShop"}
         ]
     },
     "changeFloor": { // 楼层转换事件；该事件不能和上面的events有冲突（同位置点），否则会被覆盖
