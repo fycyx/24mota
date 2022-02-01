@@ -5,8 +5,8 @@ main.floors.MT21 = {
     "floorId": "MT21", // 楼层唯一标识符，需要和名字完全一致
     "title": "主塔 21 层", // 楼层中文名
     "name": "21", // 显示在状态栏中的层数
-    "canFlyTo": false, // 该楼能否被楼传器飞到（不能的话在该楼也不允许使用楼传器）
-    "canUseQuickShop": false, // 该层是否允许使用快捷商店
+    "canFlyTo": true, // 该楼能否被楼传器飞到（不能的话在该楼也不允许使用楼传器）
+    "canUseQuickShop": true, // 该层是否允许使用快捷商店
     "defaultGround": "ground", // 默认地面的图块ID（terrains中）
     "png": [], // 该层默认显示的所有图片；详细用法请查看文档“自定义素材”中的说明。
     // "color": [0,0,0,0.3], // 该层的默认画面色调。本项可不写（代表无色调），如果写需要是一个RGBA数组。
