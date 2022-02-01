@@ -50,7 +50,8 @@ main.floors.MT0 = {
         {"type": "setValue", "name": "item:redKey", "value": "item:redKey+1"},
         "\t[仙子,fairy]\b[up,6,9]勇敢地去吧，勇士！",
         {"type": "move", "loc": [6,9], "steps": ["left"], "time": 750, "immediateHide": true},
-        {"type": "show", "loc": [5,9]}
+        {"type": "show", "loc": [5,9]},
+        {"type": "openShop", "id": "bugShop"}
     ],
     "events": { // 该楼的所有可能事件列表
         "5,9": {
